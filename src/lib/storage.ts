@@ -25,9 +25,9 @@ export function saveSession(session: Session | null): void {
   localStorage.setItem(SESSION_KEY, JSON.stringify(session));
 }
 export function clearSession(): void {
-  localStorage.setItem(SESSION_KEY, 'null');
+  if (typeof window === 'undefined') return;
+  localStorage.removeItem(SESSION_KEY);
 }
-
 // Habits
 export function getHabits(): Habit[] {
   if (typeof window === 'undefined') return [];

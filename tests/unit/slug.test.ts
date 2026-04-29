@@ -14,7 +14,8 @@ describe('getHabitSlug', () => {
 
   it('removes non alphanumeric characters except hyphens', () => {
     expect(getHabitSlug('Drink Water!')).toBe('drink-water');
-    expect(getHabitSlug('Read & Write')).toBe('read-write');
+    expect(getHabitSlug('Read&Write')).toBe('readwrite');
+    expect(getHabitSlug('Habit #1')).toBe('habit-1');
     expect(getHabitSlug('already-hyphenated')).toBe('already-hyphenated');
   });
 });

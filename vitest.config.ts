@@ -9,9 +9,19 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./tests/setup.ts'],
     tsconfig: './tests/tsconfig.json',
+    include: [
+      'tests/unit/**/*.test.ts',
+      'tests/integration/**/*.test.tsx',
+    ],
+    exclude: [
+      'tests/e2e/**',
+      'node_modules/**',
+      '.next/**',
+    ],
     coverage: {
       provider: 'v8',
       include: ['src/lib/**'],
+      exclude: ['src/lib/**/*.d.ts'],
       thresholds: { lines: 80 },
     },
   },
